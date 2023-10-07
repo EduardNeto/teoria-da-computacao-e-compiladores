@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h> //setlocale() - caracteres especiais.
+
+
+int main()
+{
+    setlocale(LC_CTYPE, "");
+
+   double raio, circunferencia, area, volume;
+
+    printf("\nDigite o valor do raio: ");
+    scanf("%lf", &raio);
+
+    circunferencia = 2 * 3.14 * raio;
+
+    area = 3.14 * pow(raio ,2);
+
+    volume = 0.75 * 3.14 * pow(raio, 3);
+
+    printf("\nO tamanho da circunferência é %.2f",circunferencia);
+
+    printf("\nO tamanho da área é%.2f",area);
+
+    printf("\nO volume da esfera é %.2f",volume);
+
+   return 0;
+}

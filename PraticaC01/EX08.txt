@@ -1,0 +1,44 @@
+a)
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h> //setlocale() - caracteres especiais.
+
+
+int main()
+{
+    setlocale(LC_CTYPE, "");
+
+   double pAtual;
+
+   printf("\nQuanto está pesando atualmente: ");
+   scanf("%lf", &pAtual);
+
+   printf("\nCaso tenha um aumento de 15 por cento do peso, irá pesar %.1f kg", pAtual * 1.15);
+
+
+   return 0;
+}
+
+
+
+b)
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h> //setlocale() - caracteres especiais.
+
+
+int main()
+{
+    setlocale(LC_CTYPE, "");
+
+   double pAtual;
+
+   printf("\nQuanto está pesando atualmente: ");
+   scanf("%lf", &pAtual);
+
+   printf("\nCaso perca 20 por cento do peso, irá pesar %.1f kg", pAtual * 0.8);
+
+
+   return 0;
+}

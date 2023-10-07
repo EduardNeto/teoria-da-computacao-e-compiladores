@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+double total(nota1, nota2, nota3);
+
+int main()
+{
+   double nota1, nota2, nota3, total;
+
+   printf("\nInforme um numero:");
+   scanf("%d",&nota1);
+
+   printf("\nInforme um numero:");
+   scanf("%d",&nota2);
+
+   printf("\nInforme um numero:");
+   scanf("%d",&nota3);
+
+   total  = (nota1+ nota2+ nota3)/3;
+
+   printf("\nMedia das notas: %d\n", total);
+}

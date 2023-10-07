@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h> //setlocale() - caracteres especiais.
+
+
+int main()
+{
+    setlocale(LC_CTYPE, "");
+
+   double cota, dolar, real;
+
+   printf("\nInforme a cotação do dolar:");
+   scanf("%lf",&cota);
+
+   printf("\nInforme o salário em dolar:");
+   scanf("%lf",&dolar);
+
+   real = cota * dolar;
+
+   printf("\nSeu salário em reais é: R$%.2f", real);
+
+   return 0;
+}
+

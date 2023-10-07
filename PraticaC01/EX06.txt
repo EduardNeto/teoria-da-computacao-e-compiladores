@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h> //setlocale() - caracteres especiais.
+
+
+int main()
+{
+    setlocale(LC_CTYPE, "");
+
+   double celsius, fahrenheit;
+
+   printf("\nInforme a temperatura em celsius: ");
+   scanf("%lf",&celsius);
+
+   fahrenheit = (celsius*1.8) + 32;
+
+   printf("\nA temperatura informada em fahrenheit é %.2f graus", fahrenheit);
+
+   return 0;
+}

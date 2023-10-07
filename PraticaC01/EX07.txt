@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h> //setlocale() - caracteres especiais.
+
+
+int main()
+{
+    setlocale(LC_CTYPE, "");
+
+   double minimo, funcionario, qtde;
+
+   printf("\nDigite o valor do salário mínimo: ");
+   scanf("%lf", &minimo);
+
+   printf("\nDigite o valor do salario do funcionário:");
+   scanf("%lf",&funcionario);
+
+   qtde = funcionario/minimo;
+
+   printf("\nAtualmente ele recebe o salário equivalente a %.1f salário(s) minimos", qtde);
+   
+   
+   return 0;
+}

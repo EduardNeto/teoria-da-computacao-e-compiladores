@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h> //setlocale() - caracteres especiais.
+
+
+int main()
+{
+    setlocale(LC_CTYPE, "");
+
+   double salario, newsal;
+
+   printf("\nInforme o salário atual:");
+   scanf("%lf",&salario);
+
+   newsal = salario * 1.25;
+
+   printf("\nSeu salário atual é R$%.2f", newsal);
+
+   return 0;
+}

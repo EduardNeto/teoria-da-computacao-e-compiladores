@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h> //setlocale() - caracteres especiais.
+
+
+int main()
+{
+    setlocale(LC_CTYPE, "");
+
+   double dMaior, dMenor, area;
+
+   printf("\nInforme a diagonal maior do losango em cm:");
+   scanf("%lf",&dMaior);
+
+   printf("\nInforme a diagonal menor do losango cm:");
+   scanf("%lf",&dMenor);
+
+   area= (dMaior * dMenor)/2;
+
+   printf("\nA area do losango é %.2f cm", area);
+
+   return 0;
+}

@@ -1,0 +1,35 @@
+a)
+
+#include <stdio.h>
+#include <stdlib.h>
+
+	
+int main()
+{
+   int idade, resp;
+
+   printf("\nInforme sua idade:");
+   scanf("%d",&idade);
+}
+
+
+b)
+
+#include <stdio.h>
+#include <stdlib.h>
+
+
+	int main()
+{
+   int idade, resp;
+
+   printf("\nInforme sua idade:");
+   scanf("%d",&idade);
+
+ printf("\nSua idade atual e: %d", idade);
+
+    resp = idade + 27;
+
+    printf("\nSua idade em 2050 sera: %d", resp);
+
+}

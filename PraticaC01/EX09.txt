@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h> //setlocale() - caracteres especiais.
+
+
+int main()
+{
+    setlocale(LC_CTYPE, "");
+
+   double cateto1, cateto2, resp;
+
+   printf("\nDigite o valor do primeiro cateto em cm: ");
+   scanf("%lf", &cateto1);
+
+   printf("\nDigite o valor do segundo cateto em cm: ");
+   scanf("%lf", &cateto2);
+
+   resp = sqrt(pow(cateto1, 2)+pow(cateto2, 2));
+
+   printf("\nA hipotenusa é: %.1f", resp);
+
+
+   return 0;
+}
