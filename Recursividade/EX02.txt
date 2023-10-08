@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int somaNum(int n) {
+    if (n == 0) {
+        return 0;
+    } else {
+        return n + somaNum(n - 1);
+    }
+}
+
+int main() {
+    setlocale(LC_CTYPE, "");
+
+    int n;
+
+    printf("Digite um valor para n: ");
+    scanf("%d", &n);
+
+
+    int resultado = somaNum(n);
+    printf("A soma dos primeiros %d números naturais é: %d\n", n, resultado);
+
+
+    return 0;
+}
