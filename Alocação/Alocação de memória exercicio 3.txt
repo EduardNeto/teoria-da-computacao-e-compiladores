@@ -1,0 +1,84 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Veiculo {
+    int numero_chassi;
+    char marca[50];
+    char modelo[50];
+    float preco;
+};
+
+int main() {
+    int tamanho_inicial, novo_tamanho;
+    
+    printf("Digite o tamanho inicial do vetor de Veículos: ");
+    scanf("%d", &tamanho_inicial);
+
+    // Alocação dinâmica de memória
+    struct Veiculo* veiculos = (struct Veiculo*)malloc(tamanho_inicial * sizeof(struct Veiculo));
+    if (veiculos == NULL) {
+        printf("Falha na alocação de memória.\n");
+        return 1;
+    }
+
+    // Preencher o array
+    for (int i = 0; i < tamanho_inicial; i++) {
+        printf("Digite o número do chassi do veículo %d: ", i + 1);
+        scanf("%d", &veiculos[i].numero_chassi);
+        printf("Digite a marca do veículo %d: ", i + 1);
+        scanf("%s", veiculos[i].marca);
+        printf("Digite o modelo do veículo %d: ", i + 1);
+        scanf("%s", veiculos[i].modelo);
+        printf("Digite o preço do veículo %d: ", i + 1);
+        scanf("%f", &veiculos[i].preco);
+    }
+
+    // Imprimir o array
+    printf("Veículos:\n");
+    for (int i = 0; i < tamanho_inicial; i++) {
+        printf("Chassi: %d\n", veiculos[i].numero_chassi);
+        printf("Marca: %s\n", veiculos[i].marca);
+        printf("Modelo: %s\n", veiculos[i].modelo);
+        printf("Preço: %.2f\n", veiculos[i].preco);
+        printf("\n");
+    }
+
+    printf("Digite o novo tamanho do vetor de Veículos: ");
+    scanf("%d", &novo_tamanho);
+
+    // Realocar o array para um tamanho maior
+    struct Veiculo* novo_veiculos = (struct Veiculo*)realloc(veiculos, novo_tamanho * sizeof(struct Veiculo));
+    if (novo_veiculos == NULL) {
+        printf("Falha na realocação de memória.\n");
+        free(veiculos);
+        return 1;
+    }
+
+    veiculos = novo_veiculos;
+
+    // Preencher o array após a realocação
+    for (int i = tamanho_inicial; i < novo_tamanho; i++) {
+        printf("Digite o número do chassi do veículo %d: ", i + 1);
+        scanf("%d", &veiculos[i].numero_chassi);
+        printf("Digite a marca do veículo %d: ", i + 1);
+        scanf("%s", veiculos[i].marca);
+        printf("Digite o modelo do veículo %d: ", i + 1);
+        scanf("%s", veiculos[i].modelo);
+        printf("Digite o preço do veículo %d: ", i + 1);
+        scanf("%f", &veiculos[i].preco);
+    }
+
+    // Imprimir o array após a realocação
+    printf("Array (após a realocação):\n");
+    for (int i = 0; i < novo_tamanho; i++) {
+        printf("Chassi: %d\n", veiculos[i].numero_chassi);
+        printf("Marca: %s\n", veiculos[i].marca);
+        printf("Modelo: %s\n", veiculos[i].modelo);
+        printf("Preço: %.2f\n", veiculos[i].preco);
+    }
+
+    // Liberar memória
+    free(veiculos);
+
+    return 0;
+}

@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    struct Pessoa *array;
+    int n;
+    
+    printf("Digite o tamanho do vetor de Pessoas: ");
+    scanf("%d", &n);
+    
+struct Pessoa {
+    long long CPF;
+    char nome[100];
+    float salario;
+};
+
+// Alocação dinâmica de memória
+struct Pessoa *AlocacaoDeMemoria(int n) {
+    struct Pessoa *array = (struct Pessoa *)calloc(n, sizeof(struct Pessoa));
+    
+    if (array == NULL) {
+        printf("Falha na alocação de memória.\n");
+        return 1;
+    }
+    
+    return array;
+}
+
+// Preencher o array
+void PreencherArray(struct Pessoa *array, int n) {
+    for (int i = 0; i < n; i++) {
+        printf("Digite o CPF para registro: ", i + 1);
+        scanf("%lld", &array[i].CPF);
+        
+        printf("Digite o nome para registro: ", i + 1);
+        scanf("%s", array[i].nome);
+        
+        printf("Digite o salário para registro: ", i + 1);
+        scanf("%f", &array[i].salario);
+    }
+}
+
+// Imprimir o array
+void ImprimirArray(struct Pessoa *array, int n) {
+    for (int i = 0; i < n; i++) {
+        printf("CPF: %lld, Nome: %s, Salário: %.2f\n", array[i].CPF, array[i].nome, array[i].salario);
+    }
+}
+  
+    array = AlocacaoDeMemoria(n);
+    PreencherArray(array, n);
+    ImprimirArray(array, n);
+    
+    // Liberar memória
+    free(array);
+    
+    return 0;
+}
