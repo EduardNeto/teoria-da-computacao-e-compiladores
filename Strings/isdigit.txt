@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char caractere;
+
+    printf("Digite um caractere: ");
+    scanf(" %c", &caractere);
+
+    if (isdigit(caractere)) {
+        printf("1\n"); // O caractere é um dígito.
+    } else {
+        printf("0\n"); // O caractere não é um dígito.
+    }
+
+    return 0;
+}

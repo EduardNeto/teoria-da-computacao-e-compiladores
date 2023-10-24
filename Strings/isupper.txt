@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char caractere;
+
+    printf("Digite um caractere: ");
+    scanf(" %c", &caractere); 
+
+    if (isupper(caractere)) {
+        printf("1\n"); // O caractere é uma letra maiúscula.
+    } else {
+        printf("0\n"); // O caractere não é uma letra maiúscula.
+    }
+
+    return 0;
+}
+

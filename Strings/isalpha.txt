@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char caractere;
+
+    printf("Digite um caractere: ");
+    scanf(" %c", &caractere);
+
+    if (isalpha(caractere)) {
+        printf("1\n"); // O caractere é uma letra.
+    } else {
+        printf("0\n"); // O caractere não é uma letra.
+    }
+
+    return 0;
+}
+
+
+

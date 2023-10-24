@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char caractere;
+
+    printf("Digite um caractere: ");
+    scanf(" %c", &caractere); 
+    if (islower(caractere)) {
+        printf("1\n"); // O caractere é uma letra minúscula.
+    } else {
+        printf("0\n"); // O caractere não é uma letra minúscula.
+    }
+
+    return 0;
+}
