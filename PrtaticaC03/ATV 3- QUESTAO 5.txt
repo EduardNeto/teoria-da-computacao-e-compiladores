@@ -1,0 +1,75 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+#define MAX_CITIES 4
+
+int grafo[MAX_CITIES][MAX_CITIES] = {0};
+
+// Função para inserir a distância entre duas cidades na matriz
+void inserirDistancia(int cidade1, int cidade2, int distancia) {
+    if (cidade1 >= 0 && cidade1 < MAX_CITIES && cidade2 >= 0 && cidade2 < MAX_CITIES) {
+        grafo[cidade1][cidade2] = distancia;
+        grafo[cidade2][cidade1] = distancia; // A matriz é simétrica, representando o tráfego bidirecional
+    } else {
+        printf("Cidades fora do alcance.\n");
+    }
+}
+
+// Função para contar quantas estradas ligam as cidades
+int contarEstradas(int cidade) {
+    int estradas = 0;
+    for (int i = 0; i < MAX_CITIES; i++) {
+        if (grafo[cidade][i] > 0) {
+            estradas++;
+        }
+    }
+    return estradas;
+}
+
+// Função para imprimir a matriz de distâncias entre cidades
+void imprimirMatriz() {
+    printf("Matriz de distâncias entre cidades:\n");
+    for (int i = 0; i < MAX_CITIES; i++) {
+        for (int j = 0; j < MAX_CITIES; j++) {
+            printf("%d ", grafo[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+// Função recursiva para obter a distância entre duas cidades
+int distanciaEntreCidades(int cidade1, int cidade2) {
+    if (grafo[cidade1][cidade2] > 0) {
+        return grafo[cidade1][cidade2];
+    } else {
+        return 0;
+    }
+}
+
+int main() {
+    // Inserir distâncias entre cidades
+    inserirDistancia(0, 1, 10);
+    inserirDistancia(0, 2, 20);
+    inserirDistancia(1, 2, 15);
+    inserirDistancia(2, 3, 5);
+
+    // Imprimir a matriz de distâncias
+    imprimirMatriz();
+
+    // Contar estradas para uma cidade
+    int cidade = 0;
+    int estradas = contarEstradas(cidade);
+    printf("A cidade %d tem %d estradas ligadas.\n", cidade, estradas);
+
+    // Calcular distância entre cidades
+    int cidadeA = 0;
+    int cidadeB = 2;
+    int dist = distanciaEntreCidades(cidadeA, cidadeB);
+    if (dist > 0) {
+        printf("A distância entre a cidade %d e a cidade %d é %d.\n", cidadeA, cidadeB, dist);
+    } else {
+        printf("Não há uma estrada direta entre a cidade %d e a cidade %d.\n", cidadeA, cidadeB);
+    }
+
+    return 0;
+}
